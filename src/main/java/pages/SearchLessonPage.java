@@ -13,6 +13,10 @@ public class SearchLessonPage extends PageBase
 	@FindBy(xpath="/html/body/header/div[1]/div/div[3]/button/i")
 	private WebElement searchIcon; 
 	
+	
+	@FindBy(xpath="//*[@id='btn_global_search']/i")
+	private WebElement clicksearchIcon;
+	
 	@FindBy(id="txt_search_query")
 	private WebElement searchTextBox; 
 
@@ -28,6 +32,7 @@ public class SearchLessonPage extends PageBase
 	public void LessonSearch(String LessonName) 
 	{
 		setTextElementText(searchTextBox, LessonName);
+		clickButton(clicksearchIcon);
 		
 	}
 

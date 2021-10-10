@@ -4,15 +4,16 @@ package tests;
 
 import java.io.IOException;
 
-import org.testng.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import data.ExcelReader;
 import pages.ChooseLanguagePage;
-import pages.HomePage;
+import pages.LessonWorkSheet;
 import pages.PageBase;
 import pages.SearchLessonPage;
+import pages.SearchResultList;
 
 
 public class UserCanLesson extends TestBase
@@ -20,6 +21,8 @@ public class UserCanLesson extends TestBase
 	PageBase pagebaseObject ; 
 	SearchLessonPage searchlessonObject ; 
 	ChooseLanguagePage chooselangobj; 
+	SearchResultList SearchResultListobj;
+	LessonWorkSheet LessonWorkSheetObj;
 	@Test ()
 	public void StartSearchingOnNagwaLessons() throws InterruptedException 
 	
@@ -47,8 +50,16 @@ public class UserCanLesson extends TestBase
 	{ 
 		searchlessonObject = new SearchLessonPage (driver); 
 		searchlessonObject.LessonSearch(LessonName1);
-		searchlessonObject.ClickOnSearchicon();
 		
+		SearchResultListobj = new SearchResultList(driver);
+		SearchResultListobj.ClickOnsecondResult();
+		
+	LessonWorkSheetObj = new LessonWorkSheet(driver);
+		//LessonWorkSheetObj.scrollToBottom();
+	
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	 js.executeScript("window.scrollBy(0,350)", "");
+		LessonWorkSheetObj.PreviewWorksheet();
 
 
 	}}

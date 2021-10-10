@@ -6,10 +6,9 @@
       <class name="tests.UserCanLesson">
         <methods>
           <include name="startDriver"/>
-          <include name="UserCanEnterLesson"/>
+          <include name="UserCanEnterLesson" invocation-numbers="1 2"/>
           <include name="setUpClass"/>
           <include name="stopDriver"/>
-          <include name="screenshotOnFailure"/>
           <include name="StartSearchingOnNagwaLessons"/>
           <include name="tearDownClass"/>
         </methods>
